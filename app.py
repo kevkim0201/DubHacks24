@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 
-os.environ['OPENAI_API_KEY'] = '[put ur key here]'
+os.environ['OPENAI_API_KEY'] = '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'
 
 app = Flask(__name__)
 
