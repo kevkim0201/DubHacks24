@@ -11,7 +11,9 @@ app = Flask(__name__)
 
 llm_resto = OpenAI(temperature=0.6)
 #TODO: Put prompt template here 
-# prompt_template_resto = PromptTemplate()
+prompt_template_resto = PromptTemplate(
+    input_variables = ['age', 'gender', 'weight', 'height', 'disease', 'fitness goal']
+)
 
 
 @app.route('/')
