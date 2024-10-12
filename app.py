@@ -12,9 +12,26 @@ app = Flask(__name__)
 llm_resto = OpenAI(temperature=0.6)
 #TODO: Put prompt template here 
 prompt_template_resto = PromptTemplate(
-    input_variables=['age', 'gender', 'weight', 'height', 'disease', 'fitness goal'],
+    input_variables=['age', 'gender', 'weight', 'height', 'disease', 'fitness_goal'],
     template="Exercise Recommendation System: \n"
-            "I want you to recommend [prompt] based on the following criteria: "     
+            "Please provide a weekly workout plan for an individual based on the following criteria: \n"
+             "Person age: {age}\n"
+             "Person gender: {gender}\n"
+             "Person weight: {weight} kg\n"
+             "Person height: {height} cm\n"
+             "Person generic disease: {disease}\n"
+             "Person fitness goal: {fitness_goal}\n"
+            "The plan should include the following for each day of the week: \n"
+            "Workout routine: a brief description of the workout \n"
+            "Exercise type: type of exercise (ex: cardio, strength training, flexibility, etc.) \n"
+            "Intensity level: a number on a scale from 1 (light) to 5 (intensive) \n"
+            "Duration: approximate time in minutes \n"
+            "Please format the response as follows for each day: \n"
+            "[Day of the week] \n"
+            "Workout routine: \n"
+            "Exercise type: \n"
+            "Intensity level: \n"
+            "Duration: \n"
 )
 
 
@@ -32,7 +49,7 @@ def recommend():
         weight = request.form['weight']
         height = request.form['height']
         disease = request.form['disease']
-        fitness_goal = request.form['fitness goal']
+        fitness_goal = request.form['fitness_goal']
 
         chain_resto = LLMChain(llm=llm_resto, prompt=prompt_template_resto)
         input_data = {
@@ -43,8 +60,14 @@ def recommend():
             'disease': disease,
             'fitness_goal': fitness_goal
         }
-        
+
         results = chain_resto.run(input_data)
+        workout_pattern = r'Workout routine:\s*(.*?)(?=\nExercise type:|\Z)'
+        workout_type = r'Exercise type:\s*(.*?)(?=\nIntensity level:|\Z)'
+        intensity_pattern = r'Intensity level:\s*(.*?)(?=\nDuration:|\Z)'
+        duration_pattern = r'Duration:\s*(.*?)(?=\n{2,}|\Z)'
+
+        
     return render_template('index.html')
 
 if __name__ == '__main__':
