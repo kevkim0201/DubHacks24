@@ -67,7 +67,16 @@ def recommend():
         intensity_pattern = r'Intensity level:\s*(.*?)(?=\nDuration:|\Z)'
         duration_pattern = r'Duration:\s*(.*?)(?=\n{2,}|\Z)'
 
-        
+        workout_routines = re.findall(workout_pattern, results, re.DOTALL)
+        exercise_types = re.findall(workout_type, results, re.DOTALL)
+        intensity_levels = re.findall(intensity_pattern, results, re.DOTALL)
+        durations = re.findall(duration_pattern, results, re.DOTALL)
+
+        workout_routines = [routine.strip() for routine in workout_routines]
+        exercise_types = [exercise.strip() for exercise in exercise_types]
+        intensity_levels = [intensity.strip() for intensity in intensity_levels]
+        durations = [duration.strip() for duration in durations]
+        return render_template('result.html', workout_routines=workout_routines, exercise_types=exercise_types, intensity_levels=intensity_levels, durations=durations)
     return render_template('index.html')
 
 if __name__ == '__main__':
