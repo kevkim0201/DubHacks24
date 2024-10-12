@@ -13,7 +13,8 @@ llm_resto = OpenAI(temperature=0.6)
 #TODO: Put prompt template here 
 prompt_template_resto = PromptTemplate(
     input_variables=['age', 'gender', 'weight', 'height', 'disease', 'fitness goal'],
-    template=""     
+    template="Exercise Recommendation System: \n"
+            "I want you to recommend [prompt] based on the following criteria: "     
 )
 
 
@@ -25,6 +26,25 @@ def index():
 # TODO: implement this method
 @app.route('/recommend', methods=['POST'])
 def recommend():
+    if request.method == ["POST"]:
+        age = request.form['age']
+        gender = request.form['gender']
+        weight = request.form['weight']
+        height = request.form['height']
+        disease = request.form['disease']
+        fitness_goal = request.form['fitness goal']
+
+        chain_resto = LLMChain(llm=llm_resto, prompt=prompt_template_resto)
+        input_data = {
+            'age': age,
+            'gender': gender,
+            'weight': weight,
+            'height': height,
+            'disease': disease,
+            'fitness_goal': fitness_goal
+        }
+        
+        results = chain_resto.run(input_data)
     return render_template('index.html')
 
 if __name__ == '__main__':
