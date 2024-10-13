@@ -41,7 +41,7 @@ def index():
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
-    if request.method == ["POST"]:
+    if request.method == 'POST':
         age = request.form['age']
         gender = request.form['gender']
         weight = request.form['weight']
