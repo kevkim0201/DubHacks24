@@ -39,15 +39,15 @@ prompt_template_resto = PromptTemplate(
 def index():
     return render_template('index.html')
 
-@app.route('/recommend', methods=('POST'))
+@app.route('/recommend', methods=['POST'])
 def recommend():
-    if request.method == ["POST"]:
-        age = request.form['age']
-        gender = request.form['gender']
-        weight = request.form['weight']
-        height = request.form['height']
-        disease = request.form['disease']
-        fitness_goal = request.form['fitness_goal']
+    if request.method == "POST":
+        age = request.form.get('age')
+        height = request.form.get('height')
+        weight = request.form.get('weight')
+        fitness_goal = request.form.get('fitness_goal')
+        gender = request.form.get('gender')
+        disease = request.form.get('disease')
 
         chain_resto = LLMChain(llm=llm_resto, prompt=prompt_template_resto)
         input_data = {
