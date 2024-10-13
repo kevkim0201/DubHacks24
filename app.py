@@ -18,7 +18,7 @@ prompt_template_resto = PromptTemplate(
              "Person gender: {gender}\n"
              "Person weight: {weight} kg\n"
              "Person height: {height} cm\n"
-             "Person generic disease: {disease}\n"
+             "Person generic disease or condition: {disease}\n"
              "Person fitness goal: {fitness_goal}\n"
             "The plan should include the following for each day of the week: \n"
             "Workout routine: a two sentence description of the workout \n"
