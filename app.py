@@ -5,12 +5,11 @@ from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 app = Flask(__name__)
 
 llm_resto = OpenAI(temperature=0.6)
-#TODO: Put prompt template here 
 prompt_template_resto = PromptTemplate(
     input_variables=['age', 'gender', 'weight', 'height', 'disease', 'fitness_goal'],
     template="Exercise Recommendation System: \n"
@@ -26,7 +25,7 @@ prompt_template_resto = PromptTemplate(
             "Exercise type: type of exercise (ex: cardio, strength training, flexibility, etc.) \n"
             "Intensity level: a number on a scale from 1 (light) to 5 (intensive) \n"
             "Duration: approximate time in minutes \n"
-            "Please format the response as follows for each day: \n"
+            "Please format the response as follows for each day of the week starting on Monday: \n"
             "[Day of the week] \n"
             "Workout routine: \n"
             "Exercise type: \n"
@@ -40,7 +39,6 @@ prompt_template_resto = PromptTemplate(
 def index():
     return render_template('index.html')
 
-# TODO: implement this method
 @app.route('/recommend', methods=['POST'])
 def recommend():
     if request.method == ["POST"]:
