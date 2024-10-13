@@ -51,18 +51,20 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #333;
-            color: white;
+            background-color: #fadae6;
+            color: rgb(8, 0, 0);
             border: none;
             padding: 10px 20px;
             border-radius: 10px;
             font-size: 16px;
+            font-family: 'Georgia', serif;
             cursor: pointer;
             display: block;
             margin: 20px auto 0;
+            width: 500px; 
         }
         button:hover {
-            background-color: #555;
+            background-color: #fa85b0;
         }
         .image-container {
             text-align: center;
@@ -125,7 +127,7 @@
         </div>
 
         <div class="image-container">
-            <img src="PonyLogo.png" alt="Pony Logo">
+            <img src="{{ url_for('static', filename='Pony.png') }}" alt="Pony Logo">
         </div>
 
         <form action="/recommend" method="post">
@@ -133,11 +135,11 @@
         </form>
 
         <div class="icons-container">
-            <img src="icon_situp.png" alt="Situp Icon">
-            <img src="icon_weightlifting.png" alt="Weightlifting Icon">
-            <img src="icon_running.png" alt="Running Icon">
-            <img src="icon_boxing.png" alt="Boxing Icon">
-            <img src="icon_yoga.png" alt="Yoga Icon">
+            <img src="{{ url_for('static', filename='situp.png') }}" alt="lift Man">
+            <img src="{{ url_for('static', filename='run.png') }}" alt="Running Man">
+            <img src="{{ url_for('static', filename='boxing.png') }}" alt="boxing Man">
+            <img src="{{ url_for('static', filename='lift.png') }}" alt="lift Man">
+            <img src="{{ url_for('static', filename='jumprope.png') }}" alt="jump rope Man">
         </div>
     </div>
 </body>
