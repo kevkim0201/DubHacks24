@@ -40,7 +40,6 @@ def index():
     return render_template('index.html')
 
 @app.route('/recommend', methods=['POST'])
-@app.route('/recommend', methods=['POST'])
 def recommend():
     if request.method == "POST":
         age = request.form['age']
