@@ -26,6 +26,23 @@
             padding: 5px 0;
             text-align: center;
         }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            width: 640px; /* Make the button the same width as the container */
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: darkred;
+        }
     </style>
 </head>
 <body>
@@ -52,5 +69,8 @@
         <p>{{i}}</p>
         {% endfor %}
     </div>
+    <form action="/" method="get">
+        <button type="submit">Return</button>
+    </form>
 </body>
 </html>
