@@ -21,7 +21,7 @@ prompt_template_resto = PromptTemplate(
              "Person generic disease: {disease}\n"
              "Person fitness goal: {fitness_goal}\n"
             "The plan should include the following for each day of the week: \n"
-            "Workout routine: a brief description of the workout \n"
+            "Workout routine: a two sentence description of the workout \n"
             "Exercise type: type of exercise (ex: cardio, strength training, flexibility, etc.) \n"
             "Intensity level: a number on a scale from 1 (light) to 5 (intensive) \n"
             "Duration: approximate time in minutes \n"
@@ -39,6 +39,7 @@ prompt_template_resto = PromptTemplate(
 def index():
     return render_template('index.html')
 
+@app.route('/recommend', methods=['POST'])
 @app.route('/recommend', methods=['POST'])
 def recommend():
     if request.method == "POST":
