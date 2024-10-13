@@ -1,93 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Workouts Recommendations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Workout Recommender</title>
     <style>
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #E8F8F5;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            background-color: white;
-            color: black;
-            max-width: 600px;
+            background-color: #D8EFFF;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 20px;
+            border: 2px solid #A4D3F5;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
         }
         h1 {
             text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            color: #5A4A8C;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 15px;
         }
         label {
-            display: block;
-            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #5A4A8C;
+            flex: 1;
         }
         input[type="text"], input[type="number"], select {
-            width: 100%;
+            flex: 2;
             padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: none;
             border-radius: 5px;
+            background-color: #FADADD;
+            color: #333;
+            font-size: 16px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: red;
+            background-color: #333;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            border-radius: 5px;
+            display: block;
+            margin: 20px auto 0;
         }
         button:hover {
-            background-color: darkred;
+            background-color: #555;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+        .icons-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .icons-container img {
+            width: 60px;
+            height: 60px;
+            opacity: 0.8;
+        }
+        .icons-container img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Diet and Workouts Recommendations</h1>
+        <h1>Custom Workout Recommender</h1>
+        
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
 
-        <form action="/recommend" method="post">
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
-            </div>
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+        </div>
 
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
 
-            <div class="form-group">
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight" name="weight" required>
-            </div>
+        <div class="form-group">
+            <label for="fitness_goal">Fitness Goal:</label>
+            <input type="text" id="fitness_goal" name="fitness_goal" required>
+        </div>
 
-            <div class="form-group">
-                <label for="height">Height (cm):</label>
-                <input type="number" id="height" name="height" step="0.01" required>
-            </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" required>
+        </div>
 
-            <div class="form-group">
-                <label for="fitness_goal">Fitness Goal:</label>
-                <input type="text" id="fitness_goal" name="fitness_goal" required>
-            </div>
+        <div class="form-group">
+            <label for="disease">Disease:</label>
+            <input type="text" id="disease" name="disease">
+        </div>
 
-            <div class="form-group">
-                <label for="disease">Generic Disease:</label>
-                <input type="text" id="disease" name="disease">
-            </div>
+        <div class="image-container">
+            <img src="PonyLogo.png" alt="Pony Logo">
+        </div>
 
-            <button type="submit">Recommend Diets</button>
-        </form>
+        <button type="submit">Recommend</button>
+
+        <div class="icons-container">
+            <img src="icon_situp.png" alt="Situp Icon">
+            <img src="icon_weightlifting.png" alt="Weightlifting Icon">
+            <img src="icon_running.png" alt="Running Icon">
+            <img src="icon_boxing.png" alt="Boxing Icon">
+            <img src="icon_yoga.png" alt="Yoga Icon">
+        </div>
     </div>
 </body>
 </html>
