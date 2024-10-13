@@ -1,56 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Workout Recommendations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Recommendations</title>
     <style>
         body {
             background-color: #f0f0f0;
-            color: #333;
-            font-family: Arial, sans-serif;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
         }
-        h1, h3 {
+        h1 {
             text-align: center;
             color: #333;
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         .container {
-            max-width: 600px;
-            margin: 50px auto;
+            max-width: 700px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: white;
+            background-color: #F9FDFE;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        p {
-            font-size: 1.1em;
-            color: #555;
-            padding: 5px 0;
-            text-align: center;
+        .day-container {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #E8F8F5;
+            border-left: 5px solid #A4D3F5;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
+            color: #5A4A8C;
+            font-weight: bold;
+        }
+        .day-header .duration {
+            font-size: 14px;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        .day-header .duration::before {
+            content: '⏲';
+            margin-right: 5px;
+        }
+        .details {
+            margin-top: 10px;
+            background-color: #FADADD;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .details p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .star {
+            margin-right: 5px;
+            color: #5A4A8C;
+        }
+        button {
+            background-color: #FADADD;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            display: block;
+            margin: 40px auto;
+            width: 100%;
+            max-width: 700px;
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #f398a1;
         }
     </style>
 </head>
 <body>
-    <h1>Workout Recommendations</h1>
+    <h1>Your personalized recommendations:</h1>
 
     <div class="container">
-        <h3>Workout Routines</h3>
-        {% for i in workout_routines %}
-        <p>{{i}}</p>
-        {% endfor %}
+        <!-- Monday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Monday</span>
+                <span class="duration">Duration: {{ durations[0] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[0] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[0] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[0] }}</p>
+            </div>
+        </div>
 
-        <h3>Exercise Types</h3>
-        {% for i in exercise_types %}
-        <p>{{i}}</p>
-        {% endfor %}
+        <!-- Tuesday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Tuesday</span>
+                <span class="duration">Duration: {{ durations[1] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[1] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[1] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[1] }}</p>
+            </div>
+        </div>
 
-        <h3>Intensity Levels</h3>
-        {% for i in intensity_levels %}
-        <p>{{i}}</p>
-        {% endfor %}
+        <!-- Repeat for Wednesday through Sunday -->
+        <!-- Wednesday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Wednesday</span>
+                <span class="duration">Duration: {{ durations[2] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[2] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[2] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[2] }}</p>
+            </div>
+        </div>
 
-        <h3>Durations</h3>
-        {% for i in durations %}
-        <p>{{i}}</p>
-        {% endfor %}
+        <!-- Thursday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Thursday</span>
+                <span class="duration">Duration: {{ durations[3] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[3] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[3] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[3] }}</p>
+            </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Friday</span>
+                <span class="duration">Duration: {{ durations[4] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[4] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[4] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[4] }}</p>
+            </div>
+        </div>
+
+        <!-- Saturday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Saturday</span>
+                <span class="duration">Duration: {{ durations[5] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[5] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[5] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[5] }}</p>
+            </div>
+        </div>
+
+        <!-- Sunday -->
+        <div class="day-container">
+            <div class="day-header">
+                <span>Sunday</span>
+                <span class="duration">Duration: {{ durations[6] }} minutes</span>
+            </div>
+            <div class="details">
+                <p><span class="star">⭐</span> Workout routine: {{ workout_routines[6] }}</p>
+                <p><span class="star">⭐</span> Exercise type: {{ exercise_types[6] }}</p>
+                <p><span class="star">⭐</span> Intensity Level: {{ intensity_levels[6] }}</p>
+            </div>
+        </div>
     </div>
+
+    <!-- Return button -->
+    <form action="/" method="get">
+        <button type="submit">Return</button>
+    </form>
 </body>
 </html>
