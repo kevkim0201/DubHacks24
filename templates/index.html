@@ -125,17 +125,17 @@
         </div>
 
         <div class="image-container">
-            <img src="PonyLogo.png" alt="Pony Logo">
+            <img src="{{ url_for('static', filename='Pony.png') }}" alt="Pony Logo">
         </div>
 
         <button type="submit">Recommend</button>
 
         <div class="icons-container">
-            <img src="icon_situp.png" alt="Situp Icon">
-            <img src="icon_weightlifting.png" alt="Weightlifting Icon">
-            <img src="icon_running.png" alt="Running Icon">
-            <img src="icon_boxing.png" alt="Boxing Icon">
-            <img src="icon_yoga.png" alt="Yoga Icon">
+            <img src="{{ url_for('static', filename='situp.png') }}" alt="lift Man">
+            <img src="{{ url_for('static', filename='run.png') }}" alt="Running Man">
+            <img src="{{ url_for('static', filename='boxing.png') }}" alt="boxing Man">
+            <img src="{{ url_for('static', filename='lift.png') }}" alt="lift Man">
+            <img src="{{ url_for('static', filename='jumprope.png') }}" alt="jump rope Man">
         </div>
     </div>
 </body>
