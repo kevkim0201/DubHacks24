@@ -1,47 +1,56 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Workouts Recommendations</title>
-    <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Workout Recommendations</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        h1, h3 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+            padding: 5px 0;
+            text-align: center;
+        }
+    </style>
 </head>
-<body >
-        <h1>Workout Recommendations</h1>
+<body>
+    <h1>Workout Recommendations</h1>
 
-    <div class="container mt-5">
+    <div class="container">
         <h3>Workout Routines</h3>
         {% for i in workout_routines %}
-        <p>
-            {{i}}
-        </p>
+        <p>{{i}}</p>
         {% endfor %}
 
         <h3>Exercise Types</h3>
         {% for i in exercise_types %}
-        <p>
-            {{i}}
-        </p>
+        <p>{{i}}</p>
         {% endfor %}
 
         <h3>Intensity Levels</h3>
-        {% for i in intensity_levels%}
-        <p>
-            {{i}}
-        </p>
+        {% for i in intensity_levels %}
+        <p>{{i}}</p>
         {% endfor %}
 
         <h3>Durations</h3>
         {% for i in durations %}
-        <p>
-            {{i}}
-        </p>
+        <p>{{i}}</p>
         {% endfor %}
     </div>
-
-    <!-- Add Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
